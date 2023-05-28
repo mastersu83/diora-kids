@@ -1,24 +1,18 @@
 import React from "react";
 import styles from "./Header.module.scss";
-import logo from "../../assets/logo.png";
-import headerImg from "../../assets/IndigoDesigns_BabyGirl_cl+(5)1.png";
-import groupImg from "../../assets/Group1.png";
+import logo from "/img/logo.png";
+import headerImg from "/img/IndigoDesigns_BabyGirl_cl+(5)1.png";
+import groupImg from "/img/Group1.png";
 import Link from "next/link";
 import Image from "next/image";
 
 const Header = () => {
   return (
     <div className={styles.header}>
-      <div>
-        <Link href="/">
-          <Image
-            width={490}
-            className={styles.header__logo}
-            src={logo}
-            alt="logo"
-          />
-        </Link>
-      </div>
+      <Link className={styles.header__logo} href="/">
+        <Image width={490} src={logo} alt="logo" />
+      </Link>
+
       <div style={{ display: "flex", justifyContent: "center" }}>
         <span>
           Это сайт <b>diorakids.com</b>. <br />

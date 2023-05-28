@@ -1,7 +1,11 @@
-import "./globals.css";
+import "../styles/globals.scss";
 import { Inter } from "next/font/google";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+import BG from "../public/img/IndigoDesigns_BabyGirl_pp+(7)1.jpg";
+import Image from "next/image";
+import Menu from "@/components/Menu/Menu";
 
 export const metadata = {
   title: "Diora Kids",
@@ -15,7 +19,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <Image className="bg" src={BG} alt="" />
+
+        <main className="main">
+          <Header />
+          <Menu />
+          <div className="content">{children}</div>
+          <Footer />
+        </main>
+      </body>
     </html>
   );
 }

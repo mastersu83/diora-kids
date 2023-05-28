@@ -1,0 +1,85 @@
+@import "../../styles/variables";
+
+.form {
+  &__adminLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin-top: 30px;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__fileInput {
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    width: 550px;
+    height: 34px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    padding: 0 10px;
+    border: 1px solid $mainColor;
+    border-radius: 5px;
+    color: $mainColor;
+  }
+
+  &__textarea {
+    width: 100%;
+    height: 130px;
+    background-color: transparent;
+    padding: 10px 10px;
+    border: 1px solid $mainColor;
+    border-radius: 5px;
+    resize: none;
+    color: $mainColor;
+  }
+
+  &__button {
+    font-family: inherit;
+    font-size: 16px;
+    background-color: #dcf4f1;
+    width: max-content;
+    padding: 10px;
+    border: 1px solid $mainColor;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    color: $mainColor;
+    margin-top: 10px;
+
+    &:hover {
+      background-color: #ff85a4;
+      transition: 0.5s;
+    }
+  }
+}
+.addImageForm {
+  .form__input {
+  }
+  .form__inputFile {
+    border: none;
+    width: 550px;
+    margin: 20px 0;
+  }
+}
+
+.previewImage {
+  width: 550px;
+  img {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.inputFileBox {
+  display: flex;
+  align-items: center;
+  width: 550px;
+}
