@@ -2,7 +2,7 @@ import "../styles/globals.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 
-import BG from "../public/img/IndigoDesigns_BabyGirl_pp+(7)1.jpg";
+import BG from "/img/IndigoDesigns_BabyGirl_pp+(7)1.jpg";
 import Image from "next/image";
 import Menu from "@/components/Menu/Menu";
 

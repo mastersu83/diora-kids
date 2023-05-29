@@ -12,17 +12,17 @@ export const menuItems: IMenuItems[] = [
   },
   {
     id: 2,
-    link: "clothes",
+    link: "/clothes",
     title: "НАРЯДНАЯ ОДЕЖДА",
   },
   {
     id: 3,
-    link: "clothes/others",
+    link: "/clothes/others",
     title: "КОНВЕРТЫ, ПЛЕДЫ, КОРЗИНЫ",
   },
   {
     id: 4,
-    link: "contacts",
+    link: "/contacts",
     title: "КОНТАКТЫ",
   },
 ];

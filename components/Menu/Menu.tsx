@@ -4,18 +4,19 @@ import React, { useState } from "react";
 import styles from "./Menu.module.scss";
 import Link from "next/link";
 import { menuItems } from "@/consts/menuLink.data";
+import { usePathname } from "next/navigation";
 
 const Menu = () => {
-  const [active, setActive] = useState<string>("/");
-  const isAuth = false;
+  const pathname = usePathname();
+  const isAuth = true;
+
   return (
     <ul className={styles.menu}>
       {menuItems.map((link) => (
         <li
           key={link.id}
-          onClick={() => setActive(link.link)}
           className={`${styles.menu__link} ${
-            active === link.link ? styles.menu__activeLink : ""
+            pathname === link.link ? styles.menu__activeLink : ""
           }`}
         >
           <Link href={link.link}>{link.title}</Link>
@@ -23,21 +24,19 @@ const Menu = () => {
       ))}
       {!isAuth ? (
         <li
-          onClick={() => setActive("login")}
           className={`${styles.menu__link} ${
-            active === "login" ? styles.menu__activeLink : ""
+            pathname === "/login" ? styles.menu__activeLink : ""
           }`}
         >
-          <Link href="login">ВОЙТИ</Link>
+          <Link href="/login">ВОЙТИ</Link>
         </li>
       ) : (
         <li
-          onClick={() => setActive("admin-panel")}
           className={`${styles.menu__link} ${
-            active === "admin-panel" ? styles.menu__activeLink : ""
+            pathname === "/admin-panel" ? styles.menu__activeLink : ""
           }`}
         >
-          <Link href="admin-panel">АДМИН ПАНЕЛЬ</Link>
+          <Link href="/admin-panel">АДМИН ПАНЕЛЬ</Link>
         </li>
       )}
     </ul>
