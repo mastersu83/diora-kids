@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <Link className={styles.header__logo} href="/">
-        <Image width={490} src={logo} alt="logo" />
+        <Image priority={true} src={logo} alt="logo" />
       </Link>
 
       <div style={{ display: "flex", justifyContent: "center" }}>
@@ -21,8 +21,8 @@ const Header = () => {
       </div>
       <div>
         <Image
-          width={270}
           className={styles.header__img}
+          priority={true}
           src={headerImg}
           alt="headerImg"
         />
@@ -30,6 +30,7 @@ const Header = () => {
         <p>E:mail diorakids@mail.ru</p>
       </div>
       <Image
+        priority={true}
         className={styles.header__groupImg}
         src={groupImg}
         alt="groupImg"

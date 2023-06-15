@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Image className="bg" src={BG} alt="" />
+        <Image className="bg" priority={true} src={BG} alt="" />
 
         <main className="main">
           <Header />

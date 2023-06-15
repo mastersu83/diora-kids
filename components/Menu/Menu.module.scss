@@ -8,13 +8,15 @@
   &__link {
     background-color: #fffdf3;
     text-decoration: none;
-    border-bottom: 2px solid #d8c7bd;
-    border-top: 2px solid #d8c7bd;
     text-align: center;
     cursor: pointer;
     transition: 0.5s;
+    margin-top: -2px;
     a {
+      border-bottom: 2px solid #d8c7bd;
+      border-top: 2px solid #d8c7bd;
       display: block;
+      height: 100%
     }
     &:hover {
       background-color: #ff85a4;

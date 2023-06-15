@@ -1,10 +1,16 @@
-import React from "react";
+"use client";
+
+// import React, { useEffect, useState } from "react";
 import classes from "./AdminPanel.module.scss";
 import { AdminPanelForm, Button } from "@/components/commons";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
+import { getMe } from "@/utils/utils";
+import { useEffect, useState } from "react";
 
-const AdminPanel = () => {
+const AdminPanel = async () => {
   const onLogOut = () => {
-    localStorage.removeItem("token");
+    Cookies.remove("tokenDiora");
   };
 
   return (
@@ -13,11 +19,6 @@ const AdminPanel = () => {
         <Button text="Выйти" logOut onClick={onLogOut} />
       </div>
       <AdminPanelForm />
-      {/*{localStorage.getItem("token") || isAuth ? (*/}
-      {/*  <AdminPanelForm />*/}
-      {/*) : (*/}
-      {/*  <Navigate to="/" />*/}
-      {/*)}*/}
     </div>
   );
 };

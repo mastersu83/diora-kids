@@ -1,12 +1,4 @@
-export interface IImage {
-  _id: string;
-  type: number;
-  typeOfClothing: string;
-  imageUrl: string;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
-}
+import { IImage } from "@/types";
 
 export const images: IImage[] = [
   {

@@ -7,7 +7,7 @@ interface InputPropsTypes {
   ) => void;
   name: string;
   type: string;
-  placeholder: string;
+  placeholder?: string;
   value?: string;
   textarea?: boolean;
   file?: boolean;

@@ -1,25 +1,20 @@
-"use client";
-
-import React, { FC } from "react";
+import React from "react";
 import classes from "./ClothesGallery.module.scss";
-import { IImage } from "@/consts/images.data";
-import { getPathName } from "@/utils/utils";
+import { IImage } from "@/types";
 
 interface IProps {
-  params: {
-    typeOfClothing: string;
-  };
+  title: string;
+  imageHorizontal: IImage[];
+  imageVertical: IImage[];
 }
 
-const ClothesGallery: FC<IProps> = ({ params }) => {
-  const { typeOfClothing, title } = getPathName(params.typeOfClothing);
-
+const ClothesGallery = ({ title, imageVertical, imageHorizontal }: IProps) => {
   return (
     <div className={classes.clothesGallery}>
       <p className={classes.clothesGallery__title}>{title}</p>
       <div className={classes.clothesGallery__items}>
         <div className={classes.clothesGallery__verticalItems}>
-          {[]?.map((i: IImage) => (
+          {imageVertical?.map((i: IImage) => (
             <img
               className={classes.clothesGallery__item}
               key={i._id}
@@ -29,7 +24,7 @@ const ClothesGallery: FC<IProps> = ({ params }) => {
           ))}
         </div>
         <div className={classes.clothesGallery__horizontalItems}>
-          {[]?.map((i: IImage) => (
+          {imageHorizontal?.map((i: IImage) => (
             <img
               className={classes.clothesGallery__item}
               key={i._id}

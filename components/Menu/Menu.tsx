@@ -1,14 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Menu.module.scss";
 import Link from "next/link";
 import { menuItems } from "@/consts/menuLink.data";
 import { usePathname } from "next/navigation";
+import Cookies from "js-cookie";
 
 const Menu = () => {
   const pathname = usePathname();
-  const isAuth = true;
+
+  const [isAuth, setIsAuth] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (Cookies.get("tokenDiora")) {
+      setIsAuth(true);
+    } else {
+      setIsAuth(false);
+    }
+  }, [Cookies.get("tokenDiora")]);
 
   return (
     <ul className={styles.menu}>

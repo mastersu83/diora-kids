@@ -41,13 +41,7 @@ export const AdminPanelForm = () => {
         <option value="Slider">Слайдер</option>
       </select>
       <div className={classes.inputFileBox}>
-        <Input
-          onChange={onChangeFile}
-          file
-          name="file"
-          type="file"
-          placeholder="Ваш Пароль"
-        />
+        <Input onChange={onChangeFile} file name="file" type="file" />
         <button className={classes.form__button}>Удалить</button>
       </div>
 

@@ -12,12 +12,12 @@ const Clothes = async () => {
       <div className={styles.clothes__items}>
         <div className={styles.clothes__item}>
           <Image
-            width={231}
             className={styles.clothes__img}
+            priority={true}
             src={girlImage}
             alt=""
           />
-          <Link href="clothes/girl">
+          <Link href="/clothes/girl">
             <button
               className={`${styles.clothes__girlImgBtn} ${styles.clothes__btn}`}
             >
@@ -27,12 +27,12 @@ const Clothes = async () => {
         </div>
         <div className={styles.clothes__item}>
           <Image
-            width={231}
             className={styles.clothes__img}
+            priority={true}
             src={boyImage}
             alt=""
           />
-          <Link href="clothes/boy">
+          <Link href="/clothes/boy">
             <button
               className={`${styles.clothes__boyImgBtn} ${styles.clothes__btn}`}
             >
