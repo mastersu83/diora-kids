@@ -3,10 +3,7 @@
 // import React, { useEffect, useState } from "react";
 import classes from "./AdminPanel.module.scss";
 import { AdminPanelForm, Button } from "@/components/commons";
-import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
-import { getMe } from "@/utils/utils";
-import { useEffect, useState } from "react";
 
 const AdminPanel = async () => {
   const onLogOut = () => {
