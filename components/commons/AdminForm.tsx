@@ -4,10 +4,9 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 import classes from "./Form.module.scss";
 import { Input } from "./Input";
 import { Button } from "./Button";
-import axios from "axios";
-import Cookies from "js-cookie";
-import { IResponse, IUser } from "@/types";
+import { IUser } from "@/types";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 export const AdminForm = () => {
   const { push } = useRouter();
@@ -24,22 +23,19 @@ export const AdminForm = () => {
     setInputs({ ...inputs, [name]: value });
   };
 
-  const sendEmail = async (e: FormEvent<HTMLFormElement>) => {
+  const login = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const data: IResponse = await axios
-        .post("https://apidiorakids.ru/api/auth/login", {
-          email: inputs.email,
-          password: inputs.password,
-        })
-        .then((res) => res.data);
+      const res = await signIn("credentials", {
+        email: inputs.email,
+        password: inputs.password,
+        redirect: false,
+      });
 
-      if (data) {
-        setUser(data.user);
+      if (res && !res.error) {
+        push("/admin-panel");
+        // cookies().set("token", data.user.token);
       }
-
-      Cookies.set("tokenDiora", data.token);
-      push("/admin-panel");
     } catch (err) {
       console.log(err.response);
     }
@@ -47,10 +43,8 @@ export const AdminForm = () => {
     setInputs({ email: "", password: "" });
   };
 
-  // console.log(!!Cookies.get("tokenDiora"));
-
   return (
-    <form onSubmit={sendEmail} className={classes.form__adminLogin}>
+    <form onSubmit={login} className={classes.form__adminLogin}>
       <Input
         input
         onChange={onChange}

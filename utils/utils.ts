@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import { cookies } from "next/headers";
 
 export const getPathName = (key: string | undefined) => {
   let title = "";
@@ -39,6 +40,23 @@ export const getData = async (type: string | undefined) => {
   return { imageVertical, imageHorizontal, title };
 };
 
+export const uploadImage = async (formData, token) => {
+  console.log(token);
+  const data = await axios
+    .post<{ imageUrl: string }>(
+      "https://apidiorakids.ru/api/upload",
+      formData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+    .then((res) => res.data.imageUrl);
+
+  return { data };
+};
+
 export const getMe = async () => {
   try {
     const isAuth = await axios.get("https://apidiorakids.ru/api/auth/me", {
@@ -51,6 +69,26 @@ export const getMe = async () => {
     }
   } catch (e) {
     console.log("hello");
+  }
+  return false;
+};
+
+export const addImage = async (image, token) => {
+  try {
+    const newImage = await axios.post(
+      "https://apidiorakids.ru/api/images",
+      image,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    if (newImage) {
+      return newImage;
+    }
+  } catch (e) {
+    console.log("Не удалось создать картирку");
   }
   return false;
 };

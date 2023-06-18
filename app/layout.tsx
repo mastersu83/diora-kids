@@ -5,6 +5,7 @@ import Footer from "@/components/Footer/Footer";
 import BG from "/img/IndigoDesigns_BabyGirl_pp+(7)1.jpg";
 import Image from "next/image";
 import Menu from "@/components/Menu/Menu";
+import { Providers } from "@/components/Providers";
 
 export const metadata = {
   title: "Diora Kids",
@@ -19,14 +20,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Image className="bg" priority={true} src={BG} alt="" />
+        <Providers>
+          <Image className="bg" priority={true} src={BG} alt="" />
 
-        <main className="main">
-          <Header />
-          <Menu />
-          <div className="content">{children}</div>
-          <Footer />
-        </main>
+          <main className="main">
+            <Header />
+            <Menu />
+            <div className="content">{children}</div>
+            <Footer />
+          </main>
+        </Providers>
       </body>
     </html>
   );

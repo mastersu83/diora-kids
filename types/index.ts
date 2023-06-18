@@ -22,3 +22,14 @@ export interface IResponse {
   user: IUser;
   token: string;
 }
+
+export interface ISession {
+  avatarUrl: string;
+  createdAt: string;
+  email: string;
+  fullName: string;
+  id: string;
+  token: string;
+  updatedAt: string;
+  __v: number;
+}
