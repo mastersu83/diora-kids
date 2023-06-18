@@ -1,20 +1,7 @@
-// import { NextAuthOptions } from "next-auth";
-// import GoggleProvider from "next-auth/providers/google";
-//
-// export const authConfig: NextAuthOptions = {
-//   providers: [
-//     GoggleProvider({
-//       clientId: process.env.GOOGLE_CLIENT_ID!,
-//       clientSecret: process.env.GOOGLE_SECRET!,
-//     }),
-//   ],
-// };
-
-import { NextAuthOptions, User } from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+import { NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import axios, { AxiosResponse } from "axios";
-import { IResponse, IUser } from "@/types";
+import axios from "axios";
+import { IResponse } from "@/types";
 
 export const authConfig: NextAuthOptions = {
   providers: [

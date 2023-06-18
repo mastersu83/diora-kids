@@ -4,13 +4,11 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 import classes from "./Form.module.scss";
 import { Input } from "./Input";
 import { Button } from "./Button";
-import { IUser } from "@/types";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 
 export const AdminForm = () => {
   const { push } = useRouter();
-  const [user, setUser] = useState<IUser>();
   const [inputs, setInputs] = useState({
     email: "",
     password: "",

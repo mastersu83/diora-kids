@@ -1,6 +1,5 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-import { cookies } from "next/headers";
 
 export const getPathName = (key: string | undefined) => {
   let title = "";
