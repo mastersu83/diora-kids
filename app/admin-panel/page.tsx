@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 
 const AdminPanel = async () => {
   const session = await getServerSession();
+
   return (
     <div className={classes.root}>
       <div className={classes.logOut__btn}>

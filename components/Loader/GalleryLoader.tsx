@@ -1,11 +1,10 @@
 import React from "react";
-import classes from "../../../components/ClothesGallery/ClothesGallery.module.scss";
+import classes from "../ClothesGallery/ClothesGallery.module.scss";
+import { HorizontalLoader } from "./HorizontalLoader";
+import { TitleLoader } from "./TitleLoader";
+import { VerticalLoader } from "./VerticalLoader";
 
-import VerticalLoader from "@/components/Loader/VerticalLoader";
-import HorizontalLoader from "@/components/Loader/HorizontalLoader";
-import TitleLoader from "@/components/Loader/TitleLoader";
-
-const Loading = () => {
+const GalleryLoader = () => {
   return (
     <div className={classes.clothesGallery}>
       <p className={classes.clothesGallery__title}>
@@ -31,4 +30,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default GalleryLoader;

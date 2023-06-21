@@ -23,24 +23,7 @@ export const getPathName = (key: string | undefined) => {
   return { title, typeOfClothing };
 };
 
-export const getData = async (type: string | undefined) => {
-  const data = await axios.get("https://apidiorakids.ru/api/images");
-
-  const { typeOfClothing, title } = getPathName(type);
-
-  const imageVertical = data.data?.filter(
-    (i) => i.type === 0 && i.typeOfClothing === typeOfClothing
-  );
-
-  const imageHorizontal = data.data?.filter(
-    (i) => i.type === 1 && i.typeOfClothing === typeOfClothing
-  );
-
-  return { imageVertical, imageHorizontal, title };
-};
-
 export const uploadImage = async (formData, token) => {
-  console.log(token);
   const data = await axios
     .post<{ imageUrl: string }>(
       "https://apidiorakids.ru/api/upload",
@@ -51,6 +34,19 @@ export const uploadImage = async (formData, token) => {
         },
       }
     )
+    .then((res) => res.data.imageUrl);
+
+  return { data };
+};
+
+export const removeFile = async (imageUrl, token) => {
+  const data = await axios
+    .delete("https://apidiorakids.ru/api/upload", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      data: { imageUrl },
+    })
     .then((res) => res.data.imageUrl);
 
   return { data };

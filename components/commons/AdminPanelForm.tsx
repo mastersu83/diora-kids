@@ -4,7 +4,7 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 import { Input } from "./Input";
 import classes from "./Form.module.scss";
 import { Button } from "./Button";
-import { addImage, uploadImage } from "@/utils/utils";
+import { addImage, removeFile, uploadImage } from "@/utils/utils";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
@@ -23,6 +23,7 @@ export const AdminPanelForm = () => {
     const { name, value } = e.target;
     setInputs({ ...inputs, [name]: value });
   };
+
   const onChangeFile = async (e: any) => {
     const formData = new FormData();
     formData.append("image", e.target.files[0]);
@@ -50,6 +51,11 @@ export const AdminPanelForm = () => {
     }
   };
 
+  const removeImg = async () => {
+    await removeFile(image, data.user.token);
+    setImage("");
+  };
+
   return (
     <form
       onSubmit={createImage}
@@ -75,7 +81,15 @@ export const AdminPanelForm = () => {
       </select>
       <div className={classes.inputFileBox}>
         <Input onChange={onChangeFile} file name="file" type="file" />
-        <button className={classes.form__button}>Удалить</button>
+        {image && (
+          <button
+            type="button"
+            className={classes.form__button}
+            onClick={removeImg}
+          >
+            Удалить
+          </button>
+        )}
       </div>
 
       <div className={classes.previewImage}>
